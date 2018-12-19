@@ -5,7 +5,7 @@ http://www.mulesoft.org/schema/mule/apikit http://www.mulesoft.org/schema/mule/a
 http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
     <http:listener-config name="pagerduty-getstarted-httpListenerConfig" host="0.0.0.0" port="8081" basePath="api" doc:name="HTTP Listener Configuration"/>
     <apikit:config name="pagerduty-getstarted-config" raml="pagerduty-getstarted.raml" consoleEnabled="false" doc:name="Router"/>
-    <http:request-config name="HTTP_Request_Configuration" protocol="HTTPS" host="956df5a2.ngrok.io" port="443" basePath="/api/pagerduty/{version}" doc:name="HTTP Request Configuration">
+    <http:request-config name="HTTP_Request_Configuration" protocol="HTTPS" host="dandevelopment.pagerduty.com" port="443" basePath="/api/v1" doc:name="HTTP Request Configuration">
         <http:raml-api-configuration location="pagerduty-getstarted.raml"/>
     </http:request-config>
     <flow name="pagerduty-getstarted-main">
