@@ -1,20 +1,23 @@
 #%RAML 1.0
 title: PagerDuty-GetStarted
 version: v1
-baseUri: https://956df5a2.ngrok.io/api/pagerduty/{version}
+baseUri: https://cc68f948.ngrok.io/api/pagerduty/v1
 mediaType: application/x-www-form-urlencoded
 description: PagerDuty aggregates your monitoring systems so you can collect events and resolve critical issues ensure maximum uptime.
 
-/resolve:
+/incidents:
     put:
-      description: Resolve an incident. Requires a ID for the incident AND the person requesting.
+      description: Acknowledge, resolve, escalate or reassign one or more incidents
       body: 
         application/json:
           type: object
           properties:
-            requester_id: string
-            id: string
-          example: {"id" : "PUPSHS1","requester_id":"PUIW"}
+            incidents:
+                type: object
+                properties:
+                  id: string
+                  type: string
+                  status: string
       responses: 
         200:
           description: A successful response
