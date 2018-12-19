@@ -18,13 +18,13 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
         <apikit:console config-ref="pagerduty-getstarted-config" doc:name="APIkit Console"/>
     </flow>
     <flow name="put:/resolve:application/json:pagerduty-getstarted-config">
-        <set-payload value="#[NullPayload.getInstance()]" doc:name="Set Payload"/>
         <http:request config-ref="HTTP_Request_Configuration" path="/incidents/#[payload.id]/resolve" method="PUT" doc:name="HTTP">
             <http:request-builder>
                 <http:uri-param paramName="requester_id" value="#[payload.requester_id]"/>
                 <http:header headerName="Authorization" value="Token token=abc123"/>
             </http:request-builder>
         </http:request>
+        <set-payload value="#[NullPayload.getInstance()]" doc:name="Set Payload"/>
     </flow>
     <apikit:mapping-exception-strategy name="pagerduty-getstarted-apiKitGlobalExceptionMapping">
         <apikit:mapping statusCode="404">
